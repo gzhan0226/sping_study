@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//★★★자바가 DB와 연동하기 위해선 jdbc 드라이버가 필요하다.
+//	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+//	//★★★data-jpa: ★★jpa 드라이버+jdbc드라이버 포함이다.
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	//데이터베이스의 클라이언트 (추후 데이터 베이스 설치시 사용)
+//	//runtimeOnly 'com.h2database:h2'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
