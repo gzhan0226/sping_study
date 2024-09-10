@@ -26,6 +26,11 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
+    /**
+     *     주문 검색 기능
+     *     Criteria API(JPA 표준)를 이용하여 동적으로 쿼리를 생성함.
+     */
+// 동적 쿼리(조건이 있는 경우)로 조회하는 메서드....JPA활용2편에서 queryDsl로 다시 작성함
     public List<Order> findAllByCriteria(OrderSearch orderSearch) {
         // CriteriaBuilder를 생성합니다.
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -64,5 +69,6 @@ public class OrderRepository {
         // 쿼리를 실행하고 결과를 반환합니다.
         return query.getResultList();
     }
+
 
 }
